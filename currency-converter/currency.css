@@ -1,0 +1,98 @@
+.main {
+  font-family: "Arial", sans-serif;
+  background: grey;
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+h1 {
+  text-align: center;
+  margin-bottom: 20px;
+  color: rgb(231, 215, 215);
+}
+
+div {
+  display: flex;
+  justify-content: space-evenly;
+  height: px;
+  border: 1px, solid, rgb(100, 36, 36);
+  width: 80%;
+  height: 60%;
+  align-items: center;
+  background-image: url(https://i.postimg.cc/gjMTWSMR/adam-nir-via-Di-E6-DH1k-unsplash.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+section {
+  background-color: rgb(239, 40, 13, 0.8);
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(218, 6, 6, 0.676);
+  margin-bottom: 20px;
+  width: 80%;
+  max-width: 400px;
+}
+
+h2 {
+  font-size: 1.5em;
+  margin-bottom: 15px;
+  color: #030303;
+  border-bottom: 2px solid #ddd;
+  padding-bottom: 10px;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+label {
+  margin-bottom: 5px;
+  font-weight: bold;
+  color: #0a0a0a;
+}
+
+input[type="text"],
+input[type="number"] {
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 1em;
+}
+
+button {
+  padding: 10px;
+  background: linear-gradient(rgb(3, 3, 3), rgb(52, 51, 51), rgb(4, 4, 4));
+  color: #ffffff;
+  border: none;
+  border-radius: 4px;
+  font-size: 1em;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.conversionResult {
+  font-size: 1.2em;
+  font-weight: bold;
+  margin-top: 15px;
+  color: #333;
+  text-align: center;
+}
+
+@media (max-width: 480px) {
+  body {
+    padding: 20px;
+  }
+
+  section {
+    width: 100%;
+    padding: 15px;
+  }
+}
