@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Currency Converter</title>
+    <link rel="stylesheet" href="currency.css" />
+  </head>
+  <body>
+    <div class="main">
+      <h1>Currency Converter</h1>
+      <div>
+        <img src="" alt="" />
+        <section>
+          <h2>Insert New Currency Rate</h2>
+          <form id="insertRateForm">
+            <label for="baseCurrency">Base Currency:</label>
+            <input type="text" id="baseCurrency" required />
+            <label for="targetCurrency">Target Currency:</label>
+            <input type="text" id="targetCurrency" required />
+            <label for="rate">Rate:</label>
+            <input type="number" id="rate" step="0.00001" required />
+            <button type="submit">Insert Rate</button>
+          </form>
+        </section>
+
+        <section>
+          <h2>Convert Currency</h2>
+          <form id="convertForm">
+            <label for="amount">Amount:</label>
+            <input type="number" id="amount" required />
+            <label for="fromCurrency">From Currency:</label>
+            <input type="text" id="fromCurrency" required />
+            <label for="toCurrency">To Currency:</label>
+            <input type="text" id="toCurrency" required />
+            <button type="submit">Convert</button>
+          </form>
+          <p id="conversionResult" class="conversionResult"></p>
+        </section>
+
+        <section>
+          <h2>Update Existing Currency Rate</h2>
+          <form id="updateRateForm">
+            <label for="updateBaseCurrency">Base Currency:</label>
+            <input type="text" id="updateBaseCurrency" required />
+            <label for="updateTargetCurrency">Target Currency:</label>
+            <input type="text" id="updateTargetCurrency" required />
+            <label for="updateRate">New Rate:</label>
+            <input type="number" id="updateRate" step="0.00001" required />
+            <button type="submit">Update Rate</button>
+          </form>
+        </section>
+      </div>
+    </div>
+
+    <script src="currency.js"></script>
+  </body>
+</html>
