@@ -19,10 +19,10 @@ document.addEventListener("DOMContentLoaded", () => {
     event.preventDefault();
     const baseCurrency = document
       .getElementById("baseCurrency")
-      .value.toUpperCase();
+      .value.toUpperCase.trim();
     const targetCurrency = document
       .getElementById("targetCurrency")
-      .value.toUpperCase();
+      .value.toUpperCase.trim();
     const rate = parseFloat(document.getElementById("rate").value);
 
     rates.base = baseCurrency;
@@ -37,10 +37,10 @@ document.addEventListener("DOMContentLoaded", () => {
     const amount = parseFloat(document.getElementById("amount").value);
     const fromCurrency = document
       .getElementById("fromCurrency")
-      .value.toUpperCase();
+      .value.toUpperCase.trim();
     const toCurrency = document
       .getElementById("toCurrency")
-      .value.toUpperCase();
+      .value.toUpperCase.trim();
 
     if (rates.base === fromCurrency && rates.rates[toCurrency]) {
       const convertedAmount = amount * rates.rates[toCurrency];
@@ -56,10 +56,10 @@ document.addEventListener("DOMContentLoaded", () => {
     event.preventDefault();
     const baseCurrency = document
       .getElementById("updateBaseCurrency")
-      .value.toUpperCase();
+      .value.toUpperCase.trim();
     const targetCurrency = document
       .getElementById("updateTargetCurrency")
-      .value.toUpperCase();
+      .value.toUpperCase.trim();
     const rate = parseFloat(document.getElementById("updateRate").value);
 
     if (rates.base === baseCurrency) {
