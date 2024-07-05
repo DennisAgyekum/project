@@ -14,6 +14,8 @@ document.addEventListener("DOMContentLoaded", () => {
   const convertForm = document.getElementById("convertForm");
   const updateRateForm = document.getElementById("updateRateForm");
   const conversionResult = document.getElementById("conversionResult");
+  const insertConfirmation = document.getElementById("insertConfirmation");
+  const updateConfirmation = document.getElementById("updateConfirmation");
 
   insertRateForm.addEventListener("submit", (event) => {
     event.preventDefault();
@@ -28,8 +30,9 @@ document.addEventListener("DOMContentLoaded", () => {
     rates.base = baseCurrency;
     rates.rates[targetCurrency] = rate;
 
-    console.log("Inserted new rate:", rates);
-    alert(`Inserted new rate: 1 ${baseCurrency} = ${rate} ${targetCurrency}`);
+      console.log("Inserted new rate:", rates);
+    insertConfirmation.textContent = `Inserted new rate: 1 ${baseCurrency} = ${rate} ${targetCurrency}`;
+    insertConfirmation.style.color = "green";
   });
 
   convertForm.addEventListener("submit", (event) => {
@@ -65,10 +68,12 @@ document.addEventListener("DOMContentLoaded", () => {
     if (rates.base === baseCurrency) {
       rates.rates[targetCurrency] = rate;
       console.log("Updated rate:", rates);
-      alert(`Updated rate: 1 ${baseCurrency} = ${rate} ${targetCurrency}`);
+      updateConfirmation.textContent = `Updated rate: 1 ${baseCurrency} = ${rate} ${targetCurrency}`;
+      updateConfirmation.style.color = "green";
     } else {
       alert(
-        `Base currency does not match the existing base currency: ${rates.base}`
+        updateConfirmation.textContent = `Base currency does not match the existing base currency: ${rates.base}`;
+      updateConfirmation.style.color = "black";
       );
     }
   });
