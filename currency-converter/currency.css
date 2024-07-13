@@ -172,7 +172,7 @@ input[type="number"] {
   z-index: 1;
 }
 
-.squares {
+.flags {
   position: absolute;
   top: 0;
   left: 0;
@@ -181,7 +181,7 @@ input[type="number"] {
   overflow: hidden;
 }
 
-.squares li {
+.flags li {
   position: fixed;
   display: block;
   list-style: none;
@@ -191,7 +191,7 @@ input[type="number"] {
   bottom: -150px;
 }
 
-.squares li:nth-child(1) {
+.flags li:nth-child(1) {
   background-image: url(https://media.istockphoto.com/id/524055319/photo/flag-of-the-united-states.jpg?b=1&s=612x612&w=0&k=20&c=9eT-PeOKwDT0bECdyP7CMNRJoEidBK8qSDjNCXiLohI=);
   background-size: contain;
   background-size: cover;
@@ -202,7 +202,7 @@ input[type="number"] {
   animation-delay: 0s;
 }
 
-.squares li:nth-child(2) {
+.flags li:nth-child(2) {
   background-image: url(https://media.istockphoto.com/id/878587072/photo/china-flag-a-series-of-flags-of-the-world.jpg?b=1&s=612x612&w=0&k=20&c=8pddpxemejzjgRwyxxYfIFEvlmMgra8YjFDcXVVsIl0=);
   background-size: contain;
   background-size: cover;
@@ -214,7 +214,7 @@ input[type="number"] {
   animation-duration: 12s;
 }
 
-.squares li:nth-child(3) {
+.flags li:nth-child(3) {
   background-image: url(https://media.istockphoto.com/id/1217966848/photo/flag-of-denmark-blowing-in-the-wind.jpg?b=1&s=612x612&w=0&k=20&c=7U1747TtkKXY27cM21-dUUaYFxgiRmfD242ePiW8s1o=);
   background-size: contain;
   background-size: cover;
@@ -225,7 +225,7 @@ input[type="number"] {
   animation-delay: 2s;
 }
 
-.squares li:nth-child(4) {
+.flags li:nth-child(4) {
   background-image: url(https://media.istockphoto.com/id/1161593798/photo/image-of-the-flag-of-ghana-series-africa.jpg?b=1&s=612x612&w=0&k=20&c=SnS0bjdLTOgAm7ZT5slA2exgQf1kVMSE2NhelA6-xqY=);
   background-size: contain;
   background-size: cover;
@@ -237,7 +237,7 @@ input[type="number"] {
   animation-duration: 18s;
 }
 
-.squares li:nth-child(5) {
+.flags li:nth-child(5) {
   background-image: url(https://images.pexels.com/photos/968308/pexels-photo-968308.jpeg?auto=compress&cs=tinysrgb&w=600);
   background-size: contain;
   background-size: cover;
@@ -248,7 +248,7 @@ input[type="number"] {
   animation-delay: 0s;
 }
 
-.squares li:nth-child(6) {
+.flags li:nth-child(6) {
   background-image: url(https://media.istockphoto.com/id/171263903/photo/canadian-flag-with-nice-satin-texture.jpg?b=1&s=612x612&w=0&k=20&c=DhkE8Uhs5VN1rnKPby_qL2fNstJ2WJDwPDTWuDFENuk=);
   background-size: contain;
   background-size: cover;
@@ -259,7 +259,7 @@ input[type="number"] {
   animation-delay: 0s;
 }
 
-.squares li:nth-child(7) {
+.flags li:nth-child(7) {
   background-image: url(https://media.istockphoto.com/id/961226640/photo/mexican-flag-waving-symbol-of-mexico.jpg?b=1&s=612x612&w=0&k=20&c=oyd5J2Ow8PfLP7wGWFaNmvar8TaTmYHWBgoq1VRp7qM=);
   background-size: contain;
   background-size: cover;
@@ -270,7 +270,7 @@ input[type="number"] {
   animation-delay: 4s;
 }
 
-.squares li:nth-child(8) {
+.flags li:nth-child(8) {
   background-image: url(https://media.istockphoto.com/id/182790719/photo/nigerian-flag.jpg?b=1&s=612x612&w=0&k=20&c=AUI-pxgVlnkcYWMtRgQp4R0KunUpoM63VrluYq7j0sQ=);
   background-size: contain;
   background-size: cover;
@@ -282,7 +282,7 @@ input[type="number"] {
   animation-duration: 30s;
 }
 
-.squares li:nth-child(9) {
+.flags li:nth-child(9) {
   background-image: url(https://media.istockphoto.com/id/1217765834/photo/flag-of-united-kingdom-blowing-in-the-wind.jpg?b=1&s=612x612&w=0&k=20&c=Pi0FGNVzG4aLjJbXtffXjqzS4DmKiLdXdY2hLNeXHwU=);
   background-size: contain;
   background-size: cover;
@@ -294,7 +294,7 @@ input[type="number"] {
   animation-duration: 25s;
 }
 
-.squares li:nth-child(10) {
+.flags li:nth-child(10) {
   background-image: url(https://media.istockphoto.com/id/1126081130/photo/turkey-flag.jpg?b=1&s=612x612&w=0&k=20&c=UthQZwMZ4GdIUx2_pko4Z5-Zwd5scJnL8zhz22qENI4=);
   background-size: contain;
   background-size: cover;
@@ -306,7 +306,7 @@ input[type="number"] {
   animation-duration: 11s;
 }
 
-.squares li:nth-child(11) {
+.flags li:nth-child(11) {
   background-image: url(https://media.istockphoto.com/id/1309831623/photo/highly-detailed-flag-of-united-arab-emirates-united-arab-emirates-flag-high-detail-national.jpg?b=1&s=612x612&w=0&k=20&c=gGaKyNDHDt4FmhvLyQcPUU26Pe8RSmeXNm6nObdPkZU=);
   background-size: contain;
   background-size: cover;
@@ -317,7 +317,7 @@ input[type="number"] {
   animation-delay: 0s;
 }
 
-.squares li:nth-child(12) {
+.flags li:nth-child(12) {
   background-image: url(https://media.istockphoto.com/id/511092543/photo/close-up-of-japans-flag.jpg?b=1&s=612x612&w=0&k=20&c=S2TG-34t9k4eFajxzGQdB0OaJaoywwKj1WFqHP6-6NQ=);
   background-size: contain;
   background-size: cover;
@@ -329,7 +329,7 @@ input[type="number"] {
   animation-duration: 7s;
 }
 
-.squares li:nth-child(13) {
+.flags li:nth-child(13) {
   background-image: url(https://media.istockphoto.com/id/489481953/photo/flag-of-russia.jpg?b=1&s=612x612&w=0&k=20&c=alq1hNqv6sfliQ05DR8qMzbmU2YtOKMcQMdxteiwlRo=);
   background-size: contain;
   background-size: cover;
@@ -341,7 +341,7 @@ input[type="number"] {
   animation-duration: 15s;
 }
 
-.squares li:nth-child(14) {
+.flags li:nth-child(14) {
   background-image: url(https://media.istockphoto.com/id/1135473633/photo/south-korea-national-flag-blowing-in-the-wind-isolated-official-patriotic-abstract-design-3d.jpg?b=1&s=612x612&w=0&k=20&c=g9kIslkQU5GAzfttod27cxYF9of_QSMX3X6goESKCYw=);
   background-size: contain;
   background-size: cover;
