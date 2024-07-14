@@ -40,13 +40,46 @@ document.addEventListener("DOMContentLoaded", () => {
       .trim();
     const searchResult = document.getElementById("searchResult");
 
-    const rateObj = currencyRates.find((rate) => rate.base === fromCurrency);
-    if (rateObj && rateObj.rates[toCurrency]) {
-      const rate = rateObj.rates[toCurrency];
-      searchResult.textContent = `1 ${fromCurrency} = ${rate} ${toCurrency}`;
-      searchResult.style.color = "black";
+    if (fromCurrency && toCurrency) {
+      const rateObj = currencyRates.find((rate) => rate.base === fromCurrency);
+      if (rateObj && rateObj.rates[toCurrency]) {
+        const rate = rateObj.rates[toCurrency];
+        searchResult.textContent = `1 ${fromCurrency} = ${rate} ${toCurrency}`;
+        searchResult.style.color = "black";
+      } else {
+        searchResult.textContent = "Currency rate not found.";
+        searchResult.style.color = "red";
+      }
+    } else if (fromCurrency) {
+      const rateObj = currencyRates.find((rate) => rate.base === fromCurrency);
+      if (rateObj) {
+        searchResult.innerHTML = `Rates for ${fromCurrency}:<br>`;
+        for (const [targetCurrency, rate] of Object.entries(rateObj.rates)) {
+          searchResult.innerHTML += `1 ${fromCurrency} = ${rate} ${targetCurrency}<br>`;
+        }
+        searchResult.style.color = "black";
+      } else {
+        searchResult.textContent = "Currency rates not found.";
+        searchResult.style.color = "red";
+      }
+    } else if (toCurrency) {
+      let ratesFound = false;
+      searchResult.innerHTML = `Rates to ${toCurrency}:<br>`;
+      currencyRates.forEach((rateObj) => {
+        if (rateObj.rates[toCurrency]) {
+          const rate = rateObj.rates[toCurrency];
+          searchResult.innerHTML += `1 ${rateObj.base} = ${rate} ${toCurrency}<br>`;
+          ratesFound = true;
+        }
+      });
+      if (!ratesFound) {
+        searchResult.textContent = "Currency rates not found.";
+        searchResult.style.color = "red";
+      } else {
+        searchResult.style.color = "black";
+      }
     } else {
-      searchResult.textContent = "Currency rate not found.";
+      searchResult.textContent = "Please enter at least one currency.";
       searchResult.style.color = "red";
     }
   });
