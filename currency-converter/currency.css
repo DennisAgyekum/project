@@ -1,50 +1,97 @@
-.main {
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
   font-family: "Arial", sans-serif;
-  background: grey;
+}
+
+body {
+  background-image: linear-gradient(160deg, #0093e9 0%, #80d0c7 100%);
+  background-repeat: no-repeat;
+  background-size: cover;
   margin: 0;
   padding: 0;
-  height: 100vh;
   width: 100%;
+  height: 100%;
   display: flex;
   flex-direction: column;
   justify-content: center;
 }
 
+.searchDiv button {
+  max-height: 40px;
+}
+
+.container {
+  width: 80%;
+  height: 10%;
+  margin: 0 auto;
+  padding-top: 10px;
+  padding-bottom: 50px;
+  z-index: 1;
+}
+
+.search {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: center;
+  gap: 4px;
+  z-index: 1;
+}
+
 h1 {
   text-align: center;
+  padding-top: 20px;
   margin-bottom: 20px;
-  color: rgb(231, 215, 215);
+  color: rgb(0, 0, 1);
+  font-size: 70px;
+  text-shadow: #28292a 2px;
 }
 
-div {
+.search-result {
+  align-items: center;
+  text-align: center;
+}
+
+.rate {
+  align-items: center;
   display: flex;
-  justify-content: space-evenly;
+  justify-content: center;
+  font-size: 1.5em;
+  margin-bottom: 15px;
+  color: #030303;
+  padding-bottom: 0px;
+}
+
+.currency {
+  display: flex;
+  justify-content: center;
   height: px;
-  border: 1px, solid, rgb(100, 36, 36);
-  width: 80%;
+  width: 100%;
   height: 60%;
   align-items: center;
-  background-image: url(https://i.postimg.cc/gjMTWSMR/adam-nir-via-Di-E6-DH1k-unsplash.jpg);
-  background-repeat: no-repeat;
-  background-size: cover;
+  gap: 20px;
 }
 
-section {
-  background-color: rgb(239, 40, 13, 0.8);
+.forms {
+  background-color: rgba(35, 130, 220, 0.8);
   padding: 20px;
   border-radius: 8px;
-  box-shadow: 0 2px 4px rgba(218, 6, 6, 0.676);
+  box-shadow: 0 2px 4px black(6, 41, 218, 0.676);
   margin-bottom: 20px;
   width: 80%;
   max-width: 400px;
+  z-index: 1;
 }
 
 h2 {
   font-size: 1.5em;
   margin-bottom: 15px;
   color: #030303;
-  border-bottom: 2px solid #ddd;
+  border-bottom: 2px solid #000001;
   padding-bottom: 10px;
+  text-align: center;
 }
 
 form {
@@ -65,25 +112,259 @@ input[type="number"] {
   border: 1px solid #ccc;
   border-radius: 4px;
   font-size: 1em;
+  z-index: 1;
 }
 
-button {
+.button {
   padding: 10px;
-  background: linear-gradient(rgb(3, 3, 3), rgb(52, 51, 51), rgb(4, 4, 4));
-  color: #ffffff;
+  background: linear-gradient(
+    rgb(3, 122, 62),
+    rgb(57, 180, 108),
+    rgb(3, 122, 62)
+  );
+  color: #0d0000;
   border: none;
   border-radius: 4px;
   font-size: 1em;
   cursor: pointer;
   transition: background-color 0.3s ease;
+  z-index: 1;
+}
+
+.button:active {
+  background-color: #3e8e41;
+  box-shadow: 0 5px #666;
+  transform: translateY(4px);
 }
 
 .conversionResult {
   font-size: 1.2em;
   font-weight: bold;
   margin-top: 15px;
-  color: #333;
+  color: #090101;
   text-align: center;
+}
+
+.rates-grid {
+  margin-top: 10px;
+  z-index: 1;
+  display: flex;
+  justify-content: center;
+}
+
+#ratesTable {
+  width: 70%;
+  border-collapse: collapse;
+  z-index: 1;
+}
+
+#ratesTable th,
+#ratesTable td {
+  border: 1px solid #00010c;
+  padding: 8px;
+  text-align: center;
+  z-index: 1;
+}
+
+#ratesTable th {
+  background-color: rgba(35, 130, 220, 0.8);
+  font-weight: bold;
+  z-index: 1;
+}
+
+.flags {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.flags li {
+  position: fixed;
+  display: block;
+  list-style: none;
+  width: 20px;
+  height: 20px;
+  animation: animate 8s linear infinite;
+  bottom: -150px;
+}
+
+.flags li:nth-child(1) {
+  background-image: url(https://media.istockphoto.com/id/524055319/photo/flag-of-the-united-states.jpg?b=1&s=612x612&w=0&k=20&c=9eT-PeOKwDT0bECdyP7CMNRJoEidBK8qSDjNCXiLohI=);
+  background-size: contain;
+  background-size: cover;
+  background-repeat: no-repeat;
+  left: 25%;
+  width: 80px;
+  height: 80px;
+  animation-delay: 0s;
+}
+
+.flags li:nth-child(2) {
+  background-image: url(https://media.istockphoto.com/id/878587072/photo/china-flag-a-series-of-flags-of-the-world.jpg?b=1&s=612x612&w=0&k=20&c=8pddpxemejzjgRwyxxYfIFEvlmMgra8YjFDcXVVsIl0=);
+  background-size: contain;
+  background-size: cover;
+  background-repeat: no-repeat;
+  left: 10%;
+  width: 70px;
+  height: 70px;
+  animation-delay: 0s;
+  animation-duration: 12s;
+}
+
+.flags li:nth-child(3) {
+  background-image: url(https://media.istockphoto.com/id/1217966848/photo/flag-of-denmark-blowing-in-the-wind.jpg?b=1&s=612x612&w=0&k=20&c=7U1747TtkKXY27cM21-dUUaYFxgiRmfD242ePiW8s1o=);
+  background-size: contain;
+  background-size: cover;
+  background-repeat: no-repeat;
+  left: 70%;
+  width: 30px;
+  height: 30px;
+  animation-delay: 2s;
+}
+
+.flags li:nth-child(4) {
+  background-image: url(https://media.istockphoto.com/id/1161593798/photo/image-of-the-flag-of-ghana-series-africa.jpg?b=1&s=612x612&w=0&k=20&c=SnS0bjdLTOgAm7ZT5slA2exgQf1kVMSE2NhelA6-xqY=);
+  background-size: contain;
+  background-size: cover;
+  background-repeat: no-repeat;
+  left: 40%;
+  width: 60px;
+  height: 60px;
+  animation-delay: 0s;
+  animation-duration: 18s;
+}
+
+.flags li:nth-child(5) {
+  background-image: url(https://images.pexels.com/photos/968308/pexels-photo-968308.jpeg?auto=compress&cs=tinysrgb&w=600);
+  background-size: contain;
+  background-size: cover;
+  background-repeat: no-repeat;
+  left: 65%;
+  width: 50px;
+  height: 50px;
+  animation-delay: 0s;
+}
+
+.flags li:nth-child(6) {
+  background-image: url(https://media.istockphoto.com/id/171263903/photo/canadian-flag-with-nice-satin-texture.jpg?b=1&s=612x612&w=0&k=20&c=DhkE8Uhs5VN1rnKPby_qL2fNstJ2WJDwPDTWuDFENuk=);
+  background-size: contain;
+  background-size: cover;
+  background-repeat: no-repeat;
+  left: 75%;
+  width: 110px;
+  height: 110px;
+  animation-delay: 0s;
+}
+
+.flags li:nth-child(7) {
+  background-image: url(https://media.istockphoto.com/id/961226640/photo/mexican-flag-waving-symbol-of-mexico.jpg?b=1&s=612x612&w=0&k=20&c=oyd5J2Ow8PfLP7wGWFaNmvar8TaTmYHWBgoq1VRp7qM=);
+  background-size: contain;
+  background-size: cover;
+  background-repeat: no-repeat;
+  left: 35%;
+  width: 150px;
+  height: 150px;
+  animation-delay: 4s;
+}
+
+.flags li:nth-child(8) {
+  background-image: url(https://media.istockphoto.com/id/182790719/photo/nigerian-flag.jpg?b=1&s=612x612&w=0&k=20&c=AUI-pxgVlnkcYWMtRgQp4R0KunUpoM63VrluYq7j0sQ=);
+  background-size: contain;
+  background-size: cover;
+  background-repeat: no-repeat;
+  left: 50%;
+  width: 40px;
+  height: 40px;
+  animation-delay: 2s;
+  animation-duration: 30s;
+}
+
+.flags li:nth-child(9) {
+  background-image: url(https://media.istockphoto.com/id/1217765834/photo/flag-of-united-kingdom-blowing-in-the-wind.jpg?b=1&s=612x612&w=0&k=20&c=Pi0FGNVzG4aLjJbXtffXjqzS4DmKiLdXdY2hLNeXHwU=);
+  background-size: contain;
+  background-size: cover;
+  background-repeat: no-repeat;
+  left: 20%;
+  width: 30px;
+  height: 30px;
+  animation-delay: 2s;
+  animation-duration: 25s;
+}
+
+.flags li:nth-child(10) {
+  background-image: url(https://media.istockphoto.com/id/1126081130/photo/turkey-flag.jpg?b=1&s=612x612&w=0&k=20&c=UthQZwMZ4GdIUx2_pko4Z5-Zwd5scJnL8zhz22qENI4=);
+  background-size: contain;
+  background-size: cover;
+  background-repeat: no-repeat;
+  left: 85%;
+  width: 150px;
+  height: 150px;
+  animation-delay: 0s;
+  animation-duration: 11s;
+}
+
+.flags li:nth-child(11) {
+  background-image: url(https://media.istockphoto.com/id/1309831623/photo/highly-detailed-flag-of-united-arab-emirates-united-arab-emirates-flag-high-detail-national.jpg?b=1&s=612x612&w=0&k=20&c=gGaKyNDHDt4FmhvLyQcPUU26Pe8RSmeXNm6nObdPkZU=);
+  background-size: contain;
+  background-size: cover;
+  background-repeat: no-repeat;
+  left: 35%;
+  width: 150px;
+  height: 150px;
+  animation-delay: 0s;
+}
+
+.flags li:nth-child(12) {
+  background-image: url(https://media.istockphoto.com/id/511092543/photo/close-up-of-japans-flag.jpg?b=1&s=612x612&w=0&k=20&c=S2TG-34t9k4eFajxzGQdB0OaJaoywwKj1WFqHP6-6NQ=);
+  background-size: contain;
+  background-size: cover;
+  background-repeat: no-repeat;
+  left: 50%;
+  width: 70px;
+  height: 70px;
+  animation-delay: 2s;
+  animation-duration: 7s;
+}
+
+.flags li:nth-child(13) {
+  background-image: url(https://media.istockphoto.com/id/489481953/photo/flag-of-russia.jpg?b=1&s=612x612&w=0&k=20&c=alq1hNqv6sfliQ05DR8qMzbmU2YtOKMcQMdxteiwlRo=);
+  background-size: contain;
+  background-size: cover;
+  background-repeat: no-repeat;
+  left: 20%;
+  width: 70px;
+  height: 70px;
+  animation-delay: 0s;
+  animation-duration: 15s;
+}
+
+.flags li:nth-child(14) {
+  background-image: url(https://media.istockphoto.com/id/1135473633/photo/south-korea-national-flag-blowing-in-the-wind-isolated-official-patriotic-abstract-design-3d.jpg?b=1&s=612x612&w=0&k=20&c=g9kIslkQU5GAzfttod27cxYF9of_QSMX3X6goESKCYw=);
+  background-size: contain;
+  background-size: cover;
+  background-repeat: no-repeat;
+  left: 85%;
+  width: 150px;
+  height: 150px;
+  animation-delay: 0s;
+  animation-duration: 11s;
+}
+
+@keyframes animate {
+  0% {
+    transform: translateY(0px) rotate(0deg);
+    opacity: 1;
+    border-radius: 0;
+  }
+
+  100% {
+    transform: translateY(-1000px) rotate(720deg);
+    opacity: 0;
+    border-radius: 50%;
+  }
 }
 
 @media (max-width: 480px) {
