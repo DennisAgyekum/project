@@ -28,6 +28,119 @@ document.addEventListener("DOMContentLoaded", () => {
 
   displayRates(currencyRates);
 
+  function getTimeRemaining(endTime) {
+    const now = new Date();
+    const timeUntilEvent = endTime - now;
+    const hours = Math.floor(timeUntilEvent / (1000 * 60 * 60));
+    const minutes = Math.floor(
+      (timeUntilEvent % (1000 * 60 * 60)) / (1000 * 60)
+    );
+    const seconds = Math.floor((timeUntilEvent % (1000 * 60)) / 1000);
+    return { timeUntilEvent, hours, minutes, seconds };
+  }
+
+  function updateCountdownAndStatus(timeUntilEvent, status) {
+    const countDown = document.getElementById("countdown");
+    countDown.innerText = `Market is ${status} until next ${timeUntilEvent.hours}h : ${timeUntilEvent.minutes}m : ${timeUntilEvent.seconds}s`;
+    countDown.style.color = status === "open" ? "green" : "red";
+  }
+
+  function getMarketTimes() {
+    const now = new Date();
+    const marketOpen = new Date(
+      now.getFullYear(),
+      now.getMonth(),
+      now.getDate(),
+      9,
+      0,
+      0,
+      0
+    );
+    const marketClose = new Date(
+      now.getFullYear(),
+      now.getMonth(),
+      now.getDate(),
+      17,
+      0,
+      0,
+      0
+    );
+
+    if (now > marketClose) {
+      marketOpen.setDate(marketOpen.getDate() + 1);
+    }
+    if (now > marketClose || now < marketOpen) {
+      marketClose.setDate(marketClose.getDate() + 1);
+    }
+
+    return { marketOpen, marketClose };
+  }
+
+  function initializeAnnouncements() {
+    setInterval(() => {
+      const now = new Date();
+      const { marketOpen, marketClose } = getMarketTimes();
+
+      if (now >= marketOpen && now < marketClose) {
+        const timeRemaining = getTimeRemaining(marketClose);
+        updateCountdownAndStatus(timeRemaining, "open");
+      } else {
+        const timeRemaining = getTimeRemaining(marketOpen);
+        updateCountdownAndStatus(timeRemaining, "closed");
+      }
+    }, 1000);
+  }
+
+  initializeAnnouncements();
+
+  function watchCurrency() {
+    const watchBaseCurrency = "USD";
+    const watchTargetCurrency = "JPY";
+    const targetRate = 180;
+    const watchInterval = 10000;
+
+    setInterval(() => {
+      const rateObj = currencyRates.find(
+        (rate) => rate.base === watchBaseCurrency
+      );
+      if (rateObj && rateObj.rates[watchTargetCurrency]) {
+        const currentRate = rateObj.rates[watchTargetCurrency];
+        if (currentRate >= targetRate) {
+          alert(
+            `Alert! 1 ${watchBaseCurrency} = ${currentRate} ${watchTargetCurrency}`
+          );
+        }
+      }
+    }, watchInterval);
+  }
+
+  function displayHottestRate() {
+    const hottestRateBanner = document.getElementById("hottestRateBanner");
+    hottestRateBanner.style.color = "white";
+
+    function updateHottestRate() {
+      let hottestRate = 0;
+      let hottestRateInfo = "";
+
+      currencyRates.forEach((rateObj) => {
+        const baseCurrency = rateObj.base;
+        for (const [targetCurrency, rate] of Object.entries(rateObj.rates)) {
+          if (rate > hottestRate) {
+            hottestRate = rate;
+            hottestRateInfo = `1 ${baseCurrency} = ${rate} ${targetCurrency}`;
+          }
+        }
+      });
+
+      hottestRateBanner.textContent = `Hottest Rate: ${hottestRateInfo}`;
+    }
+
+    setInterval(updateHottestRate, 10000);
+  }
+
+  watchCurrency();
+  displayHottestRate();
+
   document.getElementById("searchForm").addEventListener("submit", (event) => {
     event.preventDefault();
     const fromCurrency = document
