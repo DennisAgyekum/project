@@ -18,6 +18,12 @@ body {
   justify-content: center;
 }
 
+.announcement {
+  display: flex;
+  justify-content: space-between;
+  background-color: rgba(2, 33, 63);
+}
+
 .searchDiv button {
   max-height: 40px;
 }
@@ -167,8 +173,18 @@ input[type="number"] {
 }
 
 #ratesTable th {
-  background-color: rgba(35, 130, 220, 0.8);
+  background-color: rgba(3, 52, 97, 0.3);
   font-weight: bold;
+  z-index: 1;
+}
+
+.footer {
+  margin-top: 30px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  background-color: rgba(35, 130, 220, 0.8);
+  text-align: center;
+  padding: auto;
   z-index: 1;
 }
 
