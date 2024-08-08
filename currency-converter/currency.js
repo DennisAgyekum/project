@@ -1,32 +1,17 @@
 document.addEventListener("DOMContentLoaded", () => {
-  const currencyRates = [
-    {
-      base: "EUR",
-      rates: {
-        USD: 1.23,
-        GBP: 0.88,
-        JPY: 133.45,
-      },
-    },
-    {
-      base: "USD",
-      rates: {
-        EUR: 0.81,
-        GBP: 0.72,
-        JPY: 108.42,
-      },
-    },
-    {
-      base: "GBP",
-      rates: {
-        EUR: 1.14,
-        USD: 1.39,
-        JPY: 150.87,
-      },
-    },
-  ];
+  let currencyRates = [];
 
-  displayRates(currencyRates);
+  fetch(
+    "https://raw.githubusercontent.com/DennisAgyekum/DennisAgyekum.github.io/368fd5911e26f0dfeb91916f697293e1723f9aff/currency/currency-data.Json"
+  )
+    .then((response) => response.json())
+    .then((data) => {
+      currencyRates = data;
+      displayRates(currencyRates);
+      watchCurrency();
+      displayHottestRate();
+    })
+    .catch((error) => console.error("Error fetching currency rates:", error));
 
   function getTimeRemaining(endTime) {
     const now = new Date();
@@ -137,9 +122,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
     setInterval(updateHottestRate, 10000);
   }
-
-  watchCurrency();
-  displayHottestRate();
 
   document.getElementById("searchForm").addEventListener("submit", (event) => {
     event.preventDefault();
