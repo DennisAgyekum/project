@@ -299,28 +299,3 @@ document.addEventListener("DOMContentLoaded", async () => {
   }
 });
 
-
-
-
-/* async function getData() {
-  try {
-    const response = await fetch(
-      "https://raw.githubusercontent.com/oyelajakenny/oyelajakenny.github.io/main/app.json"
-    );
-    const data = await response.json();
-    currencyData = data;
-  } catch (error) {
-    console.error("Error fetching data:", error);
-  }
-  displayRates();
-  topCurrency();
-} */
-
- // "https://raw.githubusercontent.com/DennisAgyekum/DennisAgyekum.github.io/368fd5911e26f0dfeb91916f697293e1723f9aff/currency/currency-data.Json"
-
-
-
-/*   currencyRates = data;
-  displayRates(currencyRates);
-  watchCurrency();
-  displayHottestRate(); */
