@@ -1,17 +1,26 @@
-document.addEventListener("DOMContentLoaded", () => {
+document.addEventListener("DOMContentLoaded", async () => {
   let currencyRates = [];
 
-  fetch(
-    "https://raw.githubusercontent.com/DennisAgyekum/DennisAgyekum.github.io/368fd5911e26f0dfeb91916f697293e1723f9aff/currency/currency-data.Json"
-  )
-    .then((response) => response.json())
-    .then((data) => {
-      currencyRates = data;
-      displayRates(currencyRates);
-      watchCurrency();
-      displayHottestRate();
-    })
-    .catch((error) => console.error("Error fetching currency rates:", error));
+  async function fetchCurrencyRates() {
+    try {
+      const response = await fetch(
+        "https://raw.githubusercontent.com/DennisAgyekum/DennisAgyekum.github.io/368fd5911e26f0dfeb91916f697293e1723f9aff/currency/currency-data.Json"
+      );
+      if (!response.ok) {
+        throw new Error("Network response was not ok");
+      }
+      const data = await response.json();
+      return data;
+    } catch (error) {
+      console.error("Error fetching currency rates:", error);
+      return [];
+    }
+  }
+
+  currencyRates = await fetchCurrencyRates();
+  displayRates(currencyRates);
+  watchCurrency();
+  displayHottestRate();
 
   function getTimeRemaining(endTime) {
     const now = new Date();
@@ -289,3 +298,29 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 });
+
+
+
+
+/* async function getData() {
+  try {
+    const response = await fetch(
+      "https://raw.githubusercontent.com/oyelajakenny/oyelajakenny.github.io/main/app.json"
+    );
+    const data = await response.json();
+    currencyData = data;
+  } catch (error) {
+    console.error("Error fetching data:", error);
+  }
+  displayRates();
+  topCurrency();
+} */
+
+ // "https://raw.githubusercontent.com/DennisAgyekum/DennisAgyekum.github.io/368fd5911e26f0dfeb91916f697293e1723f9aff/currency/currency-data.Json"
+
+
+
+/*   currencyRates = data;
+  displayRates(currencyRates);
+  watchCurrency();
+  displayHottestRate(); */
